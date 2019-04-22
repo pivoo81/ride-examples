@@ -84,6 +84,7 @@
 {-# SCRIPT_TYPE ACCOUNT #-}
 
 let me = tx.sender
+let ownerPublicKey = base58'FYCT9GxhR2igEeyf9SWGi85bebBVaTAf9WUihEQnnBa9'
 let oracle = extract(addressFromString("3NCzaYTNDGtR8zf9yfcqePFjCqFx9S5zhs4"))
 let minWithdrawFee = 500000
 let registerBetTxFee = 500000
@@ -280,6 +281,6 @@ match(tx) {
 		else 
 			false
 		
-	case _ => sigVerify(tx.bodyBytes, tx.proofs[0], tx.senderPublicKey)
+	case _ => sigVerify(tx.bodyBytes, tx.proofs[0], ownerPublicKey)
 
 }
